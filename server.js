@@ -14,4 +14,17 @@ connection.connect((err) => {
     tracker();
   });
 
-  
+  const tracker = () =>{
+      inquirer.prompt({
+        type: 'list',
+        name: 'task',
+        message: 'What would you like to do? ',
+        choices: [
+            {
+                name: 'View all employees',
+                value: 'VIEW_EMPLOYEES',
+            },
+        ]
+
+      })
+  };
