@@ -15,6 +15,8 @@ connection.connect((err) => {
   tracker();
 });
 
+
+//promts the user to choose what they would like to do. 
 const tracker = () => {
   inquirer
     .prompt({
@@ -32,7 +34,7 @@ const tracker = () => {
       ],
     })
     .then((answer) => {
-      switch (answer.action) {
+      switch (answer.task) {
         case "Add Employee: ":
           addEmplpoyee();
           // console.log('this works');
@@ -64,12 +66,52 @@ const tracker = () => {
 };
 
 
-//will try to get this to work once im done
-const viewEmployee = () => {
-  connection.query('SELECT * FROM employee', (err, res) => {
-    if (err) throw err;
-    console.log("View Employee");
-    console.table(res);
-    tracker();
-  });
+// const viewEmployee = () => {
+//   connection.query('SELECT * FROM employee', (err, res) => {
+//     if (err) throw err;
+//     console.log("View Employee");
+//     console.table(res);
+//     tracker();
+//   });
+// };
+
+//allows the user to add an employee 
+
+const addEmplpoyee = () => {
+    inquirer.prompt([
+        {
+            name: 'first',
+            type: 'input',
+            message: 'What is their first name? ',
+        },
+
+        {
+            name: 'last', 
+            type: 'input',
+            message: 'What is their last name? ',
+        }, 
+
+        {
+            name: 'role', 
+            type: 'list',
+            message: 'What is their id? ',
+            choices: ['1','2','3','4']
+
+        }
+    ])
 };
+
+// allows the user to view employee 
+const viewEmployee = () => {
+
+}
+
+//allows user to add department 
+
+//allows user to view department
+
+//allows user to view role
+
+//allows user to update an employee
+
+//exits the program. 
